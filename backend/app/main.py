@@ -27,16 +27,20 @@ app = FastAPI(
 )
 
 # CORS configuration for Next.js frontend
+
+# CORS configuration for Next.js frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "https://claim-management-ten.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # API routers
 app.include_router(auth_router, prefix=settings.API_V1_PREFIX)
